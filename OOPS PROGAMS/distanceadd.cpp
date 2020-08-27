@@ -15,11 +15,11 @@ public:
     }
     void get_distance(){
     cout<<"distance in km=:"<< km <<", meters="<<mtr<<endl;}
-    void add(Distance d1,Distance d2){
-     km =d1.km+d2.km;
-     mtr=d1.mtr+d2.mtr;
+    void add(Distance d2){
+     km =this->km+d2.km;
+     mtr=this->mtr+d2.mtr;
      if(mtr>=1000){
-      km =d1.km+d2.km+(mtr/1000);
+      km =this->km+d2.km+(mtr/1000);
       mtr=(int)mtr%1000;  }
     }
 };
@@ -27,11 +27,10 @@ int main()
 {
     Distance d1;
     Distance d2;
-    Distance d3;
     cout<<"enter the values:";
     d1.read();
     d2.read();
-    d3.add(d1,d2);
-    d3.get_distance();
+    d1.add(d2);
+    d1.get_distance();
     return 0;
 }
